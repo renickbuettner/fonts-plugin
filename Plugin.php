@@ -1,6 +1,8 @@
 <?php namespace Renick\Fonts;
 
 use Renick\Fonts\Classes\FontImport;
+use Renick\Fonts\Classes\FontStylesheet;
+use System\Classes\CombineAssets;
 use System\Classes\PluginBase;
 
 /**
@@ -27,7 +29,7 @@ class Plugin extends PluginBase
     {
         \System\Controllers\Settings::extend(function($controller) {
             $controller->addDynamicMethod('onFontImport', function() use ($controller) {
-                return (new FontImport())->onFontImport($controller);
+                (new FontImport())->onFontImport($controller);
             });
         });
     }
@@ -55,6 +57,13 @@ class Plugin extends PluginBase
                 'label' => 'renick.fonts.permissions.fonts_manage',
                 'roles' => ['developer'],
             ],
+        ];
+    }
+
+    public function registerComponents()
+    {
+        return [
+            'Renick\Fonts\Components\Stylesheet' => 'fontsStylesheet',
         ];
     }
 }

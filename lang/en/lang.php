@@ -10,6 +10,12 @@ return [
         'tab' => 'Fonts',
         'fonts_manage' => 'Manage Fonts',
     ],
+    'components' => [
+        'stylesheet' => [
+            'name' => 'Stylesheet',
+            'description' => 'Injects the Fonts into the Page',
+        ],
+    ],
     'backend' => [
         'settings' => [
             'general' => [

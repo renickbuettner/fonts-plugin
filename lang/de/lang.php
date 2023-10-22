@@ -10,6 +10,12 @@ return [
         'tab' => 'Schriftarten',
         'fonts_manage' => 'Verwalten der Schriftarten',
     ],
+    'components' => [
+        'stylesheet' => [
+            'name' => 'Stylesheet',
+            'description' => 'Fügt die Schriftarten in die Seite ein',
+        ],
+    ],
     'backend' => [
         'settings' => [
             'general' => [
