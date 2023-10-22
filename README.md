@@ -10,8 +10,10 @@ Just a simple OctoberCMS plugin for embedding fonts.
 To install this plugin, you can just run the following command:
 ```bash
 php artisan plugin:install Renick.Fonts
-# or
-php artisan plugin:install Renick.Blocs --from=git@github.com:renickbuettner/fonts-plugin.git --want=dev-main
+```
+or
+```bash
+php artisan plugin:install Renick.Fonts --from=git@github.com:renickbuettner/fonts-plugin.git --want=dev-main
 ```
 
 Feel free to ask, raise ideas, mind bugs or contribute on the Github repository. Please create a new issue or pull
