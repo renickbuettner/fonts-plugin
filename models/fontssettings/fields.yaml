@@ -1,0 +1,61 @@
+tabs:
+    fields:
+
+        _hint:
+            label: renick.fonts::lang.backend.settings.general.hint.label
+            commentAbove: renick.fonts::lang.backend.settings.general.hint.comment
+            span: left
+            type: hint
+            tab: renick.fonts::lang.backend.settings.general.label
+
+        _import:
+            type: partial
+            path: $/renick/fonts/models/fontssettings/_import.htm
+            tab: renick.fonts::lang.backend.settings.general.label
+
+
+        fonts:
+            label: renick.fonts::lang.backend.settings.fonts.label
+            commentAbove: renick.fonts::lang.backend.settings.fonts.description
+            tab: renick.fonts::lang.backend.settings.fonts.label
+            type: repeater
+            prompt: renick.fonts::lang.backend.settings.fonts.prompt
+            titleFrom: font_name
+            maxItems: 99
+            useTabs: true
+            form:
+                fields:
+                    font_name:
+                        label: renick.fonts::lang.backend.settings.fonts.fields.font_name.label
+                        type: text
+                        span: row
+                        spanClass: col-12 col-md-6
+                        tab: renick.fonts::lang.backend.settings.fonts.fields.tab_meta
+                    font_type:
+                        label: renick.fonts::lang.backend.settings.fonts.fields.font_name.label
+                        type: dropdown
+                        span: row
+                        spanClass: col-12 col-md-6
+                        options:
+                            woff2: Woff2
+                            woff: Woff
+                            truetype: Ttf
+                            otf: Otf
+                        tab: renick.fonts::lang.backend.settings.fonts.fields.tab_meta
+                    font_file:
+                        label: renick.fonts::lang.backend.settings.fonts.fields.font_file.label
+                        type: mediafinder
+                        mode: file
+                        maxItems: 1
+                        span: row
+                        spanClass: col-12
+                        tab: renick.fonts::lang.backend.settings.fonts.fields.tab_meta
+                    font_face:
+                        label: renick.fonts::lang.backend.settings.fonts.fields.font_face.label
+                        type: codeeditor
+                        size: huge
+                        language: css
+                        span: row
+                        spanClass: col-12
+                        tab: renick.fonts::lang.backend.settings.fonts.fields.tab_code
+

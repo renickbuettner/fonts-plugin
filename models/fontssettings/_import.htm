@@ -1,0 +1,78 @@
+<button
+    type="button"
+    class="btn btn-primary"
+    data-bs-toggle="modal"
+    data-bs-target="#importModal">
+    Import
+</button>
+
+
+<div class="modal" id="importModal">
+    <div class="modal-dialog modal-dialog-centered" id="importModalContent">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <?= trans('renick.fonts::lang.backend.settings.fonts.import.title') ?>
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="form-group text-field span-full is-required">
+                    <label for="import-url-input">
+                        <?= trans('renick.fonts::lang.backend.settings.fonts.import.url.label') ?>
+                    </label>
+                    <p class="help-block before-field">
+                        <?= trans('renick.fonts::lang.backend.settings.fonts.import.url.hint') ?>
+                    </p>
+                    <input type="text"
+                           id="import-url-input"
+                           class="form-control"
+
+                           placeholder="<?= trans('renick.fonts::lang.backend.settings.fonts.import.url.placeholder') ?>" />
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    <?= trans('renick.fonts::lang.backend.settings.fonts.import.cancel') ?>
+                </button>
+                <button type="button" class="btn btn-primary submit-import">
+                    <?= trans('renick.fonts::lang.backend.settings.fonts.import.submit') ?>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-dialog modal-dialog-centered modal-loading">
+        <div class="spinner-border text-light mx-auto"></div>
+    </div>
+</div>
+
+<script>
+    (function () {
+        const submitButton = document.querySelector('#importModal button.submit-import');
+        const url = document.querySelector('#import-url-input');
+
+        submitButton.addEventListener('click', () => {
+            const value = url.value;
+            submitButton.setAttribute('disabled', 'true');
+            oc.ajax('onFontImport', {
+                data: {url: value},
+                flash: true,
+                success: function(data) {
+                    this.success(data).done(function() {
+                        setTimeout(() => {
+                         window.location.reload();
+                         submitButton.removeAttribute('disabled');
+                        }, 1000);
+                    });
+                }
+            });
+        });
+
+    })();
+</script>
+
+
+

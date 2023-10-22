@@ -1,0 +1,8 @@
+{
+    "name": "renick/fonts-plugin",
+    "type": "october-plugin",
+    "description": "OctoberCMS plugin for managing fonts",
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}
